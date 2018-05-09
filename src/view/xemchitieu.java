@@ -17,6 +17,8 @@ public class xemchitieu extends javax.swing.JFrame {
     
     DefaultTableModel tableModel = new DefaultTableModel();
     
+    boolean flag = true;
+    
     /**
      * Creates new form xemchitieu
      */
@@ -27,6 +29,24 @@ public class xemchitieu extends javax.swing.JFrame {
     }
     
     public void HienThi(){
+        tableModel.setRowCount(0);
+        String sample;
+        
+        for (int i = 0; i < 100; i++) {
+            if(flag == true){
+            sample = "Thu";
+            flag = false;
+        }
+        else{
+            sample = "Chi";
+            flag = true;
+        }
+            tableModel.addRow(new Object[]{
+            "12/2/2018", "an",i*100000 +i*20000,sample
+        });
+            
+        }
+        
         
     }
 
@@ -57,7 +77,7 @@ public class xemchitieu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setLocation(new java.awt.Point(550, 100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,56 +133,56 @@ public class xemchitieu extends javax.swing.JFrame {
         sochitieuButton.setFocusPainted(false);
         getContentPane().add(sochitieuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 110, 280));
 
-        walletTable.setFont(new java.awt.Font("Corbel", 0, 20)); // NOI18N
+        walletTable.setFont(new java.awt.Font("Corbel", 0, 24)); // NOI18N
         walletTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Ngày", "Nội dung", "Số tiền"
+                "Ngày", "Nội dung", "Số tiền", "Trạng thái"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -173,6 +193,7 @@ public class xemchitieu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        walletTable.setRowHeight(30);
         jScrollPane1.setViewportView(walletTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 605, 560));

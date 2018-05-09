@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Asus
@@ -31,8 +33,8 @@ public class login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         loginLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        accText = new javax.swing.JTextField();
+        passText = new javax.swing.JPasswordField();
         loginButton = new javax.swing.JButton();
         regisButton = new javax.swing.JButton();
         forgetButton = new javax.swing.JButton();
@@ -70,25 +72,25 @@ public class login extends javax.swing.JFrame {
         loginLabel.setOpaque(true);
         getContentPane().add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 120));
 
-        jTextField1.setBackground(new java.awt.Color(233, 233, 233));
-        jTextField1.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
-        jTextField1.setText("tentaikhoan");
-        jTextField1.setAutoscrolls(false);
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 290, 41));
+        accText.setBackground(new java.awt.Color(233, 233, 233));
+        accText.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
+        accText.setText("tentaikhoan");
+        accText.setAutoscrolls(false);
+        accText.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(accText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 290, 41));
 
-        jPasswordField1.setBackground(new java.awt.Color(233, 233, 233));
-        jPasswordField1.setText("jPasswordField1");
-        jPasswordField1.setAutoscrolls(false);
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        passText.setBackground(new java.awt.Color(233, 233, 233));
+        passText.setText("jPasswordField1");
+        passText.setAutoscrolls(false);
+        passText.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        passText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passTextActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 290, 41));
+        getContentPane().add(passText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 290, 41));
 
-        loginButton.setBackground(new java.awt.Color(0, 153, 204));
+        loginButton.setBackground(new java.awt.Color(51, 204, 0));
         loginButton.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("ĐĂNG NHẬP");
@@ -102,7 +104,7 @@ public class login extends javax.swing.JFrame {
         });
         getContentPane().add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 130, 35));
 
-        regisButton.setBackground(new java.awt.Color(51, 204, 0));
+        regisButton.setBackground(new java.awt.Color(51, 153, 255));
         regisButton.setFont(new java.awt.Font("Corbel", 0, 18)); // NOI18N
         regisButton.setForeground(new java.awt.Color(255, 255, 255));
         regisButton.setText("ĐĂNG KÝ");
@@ -138,15 +140,19 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passTextActionPerformed
 
     private boolean check(){
         return true;
     }
     
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        if(accText.getText().length() ==0 || passText.getPassword().toString().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập đầy đủ thông tin đăng nhập!");
+            return;
+        }
         if (check()==true){
             this.dispose();
             new xemchitieu().setVisible(true);
@@ -189,6 +195,7 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accText;
     private javax.swing.JButton forgetButton;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
@@ -197,10 +204,9 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginLabel;
+    private javax.swing.JPasswordField passText;
     private javax.swing.JButton regisButton;
     // End of variables declaration//GEN-END:variables
 
