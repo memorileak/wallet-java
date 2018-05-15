@@ -12,7 +12,7 @@ import org.apache.commons.lang3.SerializationUtils;
  */
 public class TokenTool {
     
-    private static final String tokenPath = "auth/token";
+    private static final String tokenDir = ".config/walletjava/credential";
     
     /**
      * Save token to file
@@ -21,9 +21,18 @@ public class TokenTool {
      */
     public static boolean saveToken(HashMap<String, String> token) {
         boolean isSaveSuccess = false;
+        File outFile = null;
         FileOutputStream out = null;
         try {
-            out = new FileOutputStream(tokenPath);
+            outFile = new File(tokenDir);
+            if (!outFile.exists()) {
+                try {                    
+                    outFile.mkdirs();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            out = new FileOutputStream(tokenDir + "/token");
             
             byte[] bytes = SerializationUtils.serialize(token);
             
@@ -49,7 +58,7 @@ public class TokenTool {
         FileInputStream in = null;
         
         try {
-            tokenFile = new File(tokenPath);
+            tokenFile = new File(tokenDir + "/token");
             in = new FileInputStream(tokenFile);
             
             byte[] bytes = new byte[(int)tokenFile.length()];
@@ -75,7 +84,7 @@ public class TokenTool {
         File tokenFile = null;
         
         try {
-            tokenFile = new File(tokenPath);
+            tokenFile = new File(tokenDir + "/token");
             if (tokenFile.delete()) {
                 isDeleteSuccess = true;
             } else {

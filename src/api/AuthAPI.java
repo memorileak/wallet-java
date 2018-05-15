@@ -2,11 +2,8 @@ package api;
 
 import java.sql.ResultSet;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.MySQL;
 
-import org.apache.commons.lang3.SerializationUtils;
 import utils.EncryptTool;
 import utils.TokenTool;
 
@@ -289,29 +286,4 @@ public class AuthAPI {
         return loggedIn;
     }
     
-    
-//    public static void main(String[] args) {
-//        
-//        if (!MySQL.isConnected()) {
-//            MySQL.connect("localhost:3306", "walletjava", "root", "toor");
-//        }
-//        
-//        HashMap<String, String> user = new HashMap<>();
-//        
-//        user.put("username", "tungnguyen");
-//        user.put("password", "123456");
-//        user.put("fullName", "Nguyễn Văn Tùng");
-//        
-//        try {
-//            AuthAPI.register(user);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        
-//        try {
-//            AuthAPI.login(user);            
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
